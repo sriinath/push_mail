@@ -1,16 +1,17 @@
-version: '3'
+version: '3.7'
 services:
   app:
     image: mail_pusher_api
+    container_name: mail_pusher
     build:
       context: .
       dockerfile: Dockerfile
+    expose:
+      - 8080
   nginx:
     image: local_nginx_server
     build:
-      context: /Users/srinathkarthikeyan/nginx-conf
+      context: nginx
       dockerfile: Dockerfile
     ports:
       - 80:8000
-    depends_on:
-      - app
