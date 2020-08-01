@@ -9,9 +9,9 @@ services:
     expose:
       - 8080
   nginx:
-    image: local_nginx_server
+    image: mail_pusher_server
     build:
       context: nginx
       dockerfile: Dockerfile
     ports:
-      - 80:8000
+      - "${EXTERNAL_PORT}:${INTERNAL_PORT}"
